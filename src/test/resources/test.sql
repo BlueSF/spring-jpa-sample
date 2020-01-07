@@ -1,3 +1,9 @@
+set FOREIGN_KEY_CHECKS = 0;
+truncate project_module;
+truncate module;
+truncate project;
+set FOREIGN_KEY_CHECKS = 1;
+
 insert into module (name) values ('module1');
 insert into module (name) values ('module2');
 insert into module (name) values ('module3');

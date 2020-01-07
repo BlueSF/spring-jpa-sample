@@ -21,8 +21,8 @@ public class Project {
   private Set<ProjectModule> projectModuleSet = new HashSet<>();
 
   public void addProjectModuleSet(ProjectModule projectModule) {
-    this.projectModuleSet.add(projectModule);
     projectModule.setProject(this);
+    this.projectModuleSet.add(projectModule);
   }
 
   public void removeProjectModuleSet(ProjectModule projectModule) {

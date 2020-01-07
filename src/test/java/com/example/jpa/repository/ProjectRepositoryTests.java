@@ -28,21 +28,13 @@ public class ProjectRepositoryTests extends JpaUnitTest {
   @Autowired
   ProjectModuleRepository projectModuleRepository;
 
-  Map<Integer, Module> dummyModuleMap;
-  Project dummyProject;
-
-  @BeforeEach
-  public void setup() {
-//    this.dummyModuleMap = this.addDummyModule();
-//    this.dummyProject = this.addDummyProject();
-  }
-
   @Test
+  @Sql(scripts = {"classpath:test.sql"})
   public void test_addModule() {
     List<Module> moduleList = moduleRepository.findAll();
 
     Project project = new Project();
-    project.setName("test");
+    project.setName("junit");
 
     for (Module module : moduleList) {
       ProjectModule e = new ProjectModule();
@@ -55,37 +47,35 @@ public class ProjectRepositoryTests extends JpaUnitTest {
     Optional<Project> byId = projectRepository.findById(saved.getId());
 
     Assertions.assertTrue(byId.isPresent());
-    Assertions.assertEquals(byId.get().getProjectModuleSet().size(), this.dummyModuleMap.size());
+    Assertions.assertEquals(byId.get().getProjectModuleSet().size(), 9);
     for (ProjectModule e : byId.get().getProjectModuleSet()) {
       Assertions.assertNotNull(e.getProject());
     }
   }
 
   @Test
+  @Sql(scripts = {"classpath:test.sql"})
   public void test_modifyGoods() {
     List<Module> moduleList = moduleRepository.findAll();
 
     Project project = new Project();
     project.setName("test");
     Set<ProjectModule> projectModuleSet = new HashSet<>();
-
-    Project save = projectRepository.save(project);
-    Assertions.assertEquals(save.getProjectModuleSet().size(), 0);
-
-    Project one = projectRepository.getOne(save.getId());
-
+    Optional<Project> one = projectRepository.findById(1);
+    Assertions.assertTrue(one.isPresent());
     for (Module module : moduleList) {
       ProjectModule e = new ProjectModule();
+      e.setProject(one.get());
       e.setModule(module);
       projectModuleSet.add(e);
     }
-    one.setProjectModuleSet(projectModuleSet);
-    projectRepository.save(one);
+    one.get().setProjectModuleSet(projectModuleSet);
+    projectRepository.save(one.get());
 
-    Optional<Project> byId = projectRepository.findById(save.getId());
+    Optional<Project> byId = projectRepository.findById(one.get().getId());
 
     Assertions.assertTrue(byId.isPresent());
-    Assertions.assertEquals(byId.get().getProjectModuleSet().size(), this.dummyModuleMap.size());
+    Assertions.assertEquals(byId.get().getProjectModuleSet().size(), 9);
   }
 
   @Test
