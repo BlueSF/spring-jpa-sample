@@ -1,5 +1,6 @@
-package com.example.jpa.entity;
+package com.example.jpa.project;
 
+import com.example.jpa.entity.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +11,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-public class Project extends BaseEntity{
+public class Project extends BaseEntity {
   @Column(unique = true)
   private String name;
   @OneToMany(mappedBy = "project", targetEntity = ProjectModule.class,

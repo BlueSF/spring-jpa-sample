@@ -1,8 +1,10 @@
 package com.example.jpa;
 
-import com.example.jpa.entity.Module;
-import com.example.jpa.entity.Project;
-import com.example.jpa.entity.ProjectModule;
+import com.example.jpa.module.Module;
+import com.example.jpa.module.ModuleRepository;
+import com.example.jpa.project.Project;
+import com.example.jpa.project.ProjectModule;
+import com.example.jpa.project.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.domain.PageRequest;

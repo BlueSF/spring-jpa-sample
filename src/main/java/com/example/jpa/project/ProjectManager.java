@@ -1,5 +1,6 @@
-package com.example.jpa.entity;
+package com.example.jpa.project;
 
+import com.example.jpa.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

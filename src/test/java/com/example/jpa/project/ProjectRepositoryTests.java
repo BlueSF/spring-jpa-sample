@@ -1,14 +1,13 @@
-package com.example.jpa.repository;
+package com.example.jpa.project;
 
 import com.example.jpa.JpaUnitTest;
-import com.example.jpa.ModuleRepository;
-import com.example.jpa.ProjectModuleRepository;
-import com.example.jpa.ProjectRepository;
-import com.example.jpa.entity.Module;
-import com.example.jpa.entity.Project;
-import com.example.jpa.entity.ProjectModule;
+import com.example.jpa.module.ModuleRepository;
+import com.example.jpa.project.ProjectModuleRepository;
+import com.example.jpa.project.ProjectRepository;
+import com.example.jpa.module.Module;
+import com.example.jpa.project.Project;
+import com.example.jpa.project.ProjectModule;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

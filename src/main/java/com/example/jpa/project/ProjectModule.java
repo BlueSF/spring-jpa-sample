@@ -1,5 +1,7 @@
-package com.example.jpa.entity;
+package com.example.jpa.project;
 
+import com.example.jpa.entity.BaseEntity;
+import com.example.jpa.module.Module;
 import lombok.Getter;
 import lombok.Setter;
 

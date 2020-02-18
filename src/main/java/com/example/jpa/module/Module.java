@@ -1,5 +1,6 @@
-package com.example.jpa.entity;
+package com.example.jpa.module;
 
+import com.example.jpa.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

@@ -1,6 +1,6 @@
-package com.example.jpa.repository;
+package com.example.jpa.project;
 
-import com.example.jpa.ProjectManagerRepository;
+import com.example.jpa.project.ProjectManagerRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
