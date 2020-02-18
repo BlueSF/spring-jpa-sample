@@ -12,10 +12,7 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProjectManager {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+public class ProjectManager extends BaseEntity {
   @Column(unique = true)
   private String name;
 

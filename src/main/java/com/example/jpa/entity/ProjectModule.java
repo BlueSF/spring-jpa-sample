@@ -10,10 +10,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"project_id", "module_id"}))
-public class ProjectModule {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+public class ProjectModule extends BaseEntity {
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "PROJECT_ID", foreignKey = @ForeignKey(name = "FK_PROJECT_MODULE_PROJECT_ID"))
   private Project project;

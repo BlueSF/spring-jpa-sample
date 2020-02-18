@@ -10,10 +10,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-public class Project {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+public class Project extends BaseEntity{
   @Column(unique = true)
   private String name;
   @OneToMany(mappedBy = "project", targetEntity = ProjectModule.class,
