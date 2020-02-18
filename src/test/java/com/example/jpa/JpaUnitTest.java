@@ -34,8 +34,7 @@ public class JpaUnitTest {
   protected Project addDummyProject() {
     List<Module> moduleList = moduleRepository.findAll(PageRequest.of(0, 3)).getContent();
 
-    Project project = new Project();
-    project.setName("test");
+    Project project = Project.builder().name("test").build();
     Set<ProjectModule> projectModuleSet = new HashSet<>();
     for (Module module : moduleList) {
       ProjectModule e = new ProjectModule();

@@ -32,8 +32,7 @@ public class ProjectRepositoryTests extends JpaUnitTest {
   public void test_addModule() {
     List<Module> moduleList = moduleRepository.findAll();
 
-    Project project = new Project();
-    project.setName("junit");
+    Project project = Project.builder().name("junit").build();
 
     for (Module module : moduleList) {
       ProjectModule e = new ProjectModule();
@@ -56,9 +55,6 @@ public class ProjectRepositoryTests extends JpaUnitTest {
   @Sql(scripts = {"classpath:test.sql"})
   public void test_modifyGoods() {
     List<Module> moduleList = moduleRepository.findAll();
-
-    Project project = new Project();
-    project.setName("test");
     Set<ProjectModule> projectModuleSet = new HashSet<>();
     Optional<Project> one = projectRepository.findById(1);
     Assertions.assertTrue(one.isPresent());
